@@ -1,0 +1,13 @@
+Hoje na aula aprendemos os 7 passos fundamentais pra resolver problemas 
+durante nossas programações! 
+Devemos começar tendo bastante atenção aos enunciados. Ler com cuidado 
+extraindo o que o nosso código deve fazer. Depois disso, vamos assimilando 
+e anotando as informações mais importantes, como por exemplo separar
+as palavras chaves que provavelmente se tornarão variáveis e os verbos 
+que se tornarão funções. Em seguida, temos que pensar nas entradas e 
+saídas do código. A partir daí, já teremos como fazer um esquema 
+tornando o objetivo mais visual e com isso criar um código que, mesmo
+que não seja o mais limpo, chegue no resultado que esperamos. Depois conseguimos 
+transcrever esse código pra linguagem que desejamos e, por fim, organizarmos
+nosso código refatorando-o, ou seja, dando melhores nomes as variáveis, 
+separando funções de cada elemento e começando pelas principais etapas. 
