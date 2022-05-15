@@ -56,41 +56,40 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-    let resposta1 
-    let resposta2 
-    let resposta3 
 
-    resposta1 = function numeroMaior(){
-        if (num1>num2){
-            return num1
-        }else{
-            return num2
-        }
-
+    let variavelMaiorNumero = novoArray[0]
+    for(let i = 0; i < novoArray.length; i++){
+      if(novoArray[i] > maiorNumero){
+        maiorNumero = novoArray[i]
+      }
     }
-    resposta2 = function maiorDividindoMenor(){
-        if(num1>num2){
-            return num1/num2
-        }else{
-            return num2/num1
-        }
-    }
-    resposta3 = function dif(){
-        if(num1>num2){
-            return num1-num2
-        }else{
-            return num2-num1
-        }
-    }
-    const objeto = {
-        maiorNumero: resposta1,
-        maiorDivisivelPorMenor: resposta2,
-        diferenca: resposta3
-        };
-        return objeto
+   function divisivel(){ 
+   if(num1 % num2 === 0){
+     variavelMaiorDivisivelPorMenor = true
+   } else {
+     variavelMaiorDivisivelPorMenor = false
+   }
+   return variavelMaiorDivisivelPorMenor
+   }
+   function diferencaEntreNumeros(){ 
+     let resultadoDiferenca
+   if(num1 > num2){
+     resultadoDiferenca = num1 - num2
+   } else {
+     resultadoDiferenca = num2 - num1
+   }
+   return resultadoDiferenca
+   }
+   let novoObjeto = {
+     maiorNumero: variavelMaiorNumero,
+     maiorDivisivelPorMenor: divisivel(),
+     diferenca: diferencaEntreNumeros()
+   }
+   return novoObjeto
+   }
 
 
-}
+
 
 
 
@@ -98,12 +97,12 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-    for(let i=0; i<n; i++){
-        if((i % 2) === 0){
-            return [i]
-        }
+    let numerosPares = [];
+    for (let i = 0; i < n; i++) {
+        let valor = i * 2
+        numerosPares.push(valor)
     }
-
+    return numerosPares
 
     
    
@@ -126,26 +125,51 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
+    let novoArray = array.sort(function(a, b){return a-b})
+    let segundoMaior = novoArray[novoArray.length - 2]
+    let segundoMenor = novoArray[1]
+    let = apenasNumerosPedidos = [segundoMaior, segundoMenor]
+    return apenasNumerosPedidos
   
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
+    return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores[0]}, ${filme.atores[1]}, ${filme.atores[2]}, ${filme.atores[3]}.`
+    
    
 }
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
+    const novaPessoa = {
+        ...pessoa,
+        nome: "ANÔNIMO",
+
+    }
+   return novaPessoa
 }
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
+    let idadeMinima = 14
+  let idadeMaxima = 60
+  let alturaMinima = 1.5
+  let pessoasAutorizadas = pessoas.filter((item) => item.idade > idadeMinima && item.idade < idadeMaxima && item.altura >= alturaMinima)
+  return pessoasAutorizadas
+   
+   
+ 
    
 }
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
+    let idadeMinima = 14;
+    let idadeMaxima = 60;
+    let alturaMinima = 1.5;
+    let pessoasNaoAutorizadas = pessoas.filter((item) => item.idade <= idadeMinima || item.idade > idadeMaxima || item.altura < alturaMinima);
+    return pessoasNaoAutorizadas
   
 }
 
@@ -161,5 +185,4 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
 }
