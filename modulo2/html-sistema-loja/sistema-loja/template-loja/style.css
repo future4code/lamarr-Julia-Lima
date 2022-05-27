@@ -1,0 +1,52 @@
+.cabecalho{
+    width: 100%;
+    float: left; 
+    padding: 5px 8px;
+    background-color:khaki ;
+
+}
+
+.logo{
+    width:auto;
+    float:left;
+    width:100px;
+    
+    background: url(./img/imagem\ brindando.jpg) no-repeat;
+
+}
+
+.meio{
+    background-color: goldenrod;
+}
+
+
+.rodape{
+    width: 100%;
+    padding: 1px;
+    color: black;
+    background-color: khaki;
+}
+
+h1{
+    display: inline;
+}
+
+.mudarParaInline{
+    text-align: center; 
+}
+
+.container { 
+    background-color:goldenrod;
+    text-align: center; 
+    margin:100;
+
+}
+
+.alinharDireita {
+   text-align:right;
+}
+
+.alinharEsquerda{
+    text-align:left;
+}
+
