@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    background-color: mediumvioletred;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container{
+    display: flex;
+    background-color:#f2d0e0;
+    flex-direction: column;
+    height: 730px;
+    width: 300px;
+}
+
+.itens{
+    display: flex;
+    font-size: 20;
+    justify-content: space-between;
+    margin: 10px;
+}
+.partilharTela{
+    display: flex;
+}
+
+.itens2{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+
+section{
+
+
+    border: 1px solid darkgray;
+    padding: 1px;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p, h3{
+    text-align: center;
+}
+
+
+  
+
+
+
+
+
+
+
+footer{
+    display: flex;
+    background-color: mediumvioletred;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
