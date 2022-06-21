@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+label {display: block;}
+input, button { height: 20px;}
+input {width: 100px; height: 20px;}
+
+header{
+    display: grid;
+    background: rgb(207, 108, 105);
+    grid-template-columns:175px 1fr;
+    grid-template-rows: 70px;
+    justify-items: end;
+    align-items: center;
+}
+
+.buscar{
+    margin-right: 10px;
+    padding: 2px 5px 2px 5px;
+}
+
+.principal{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    align-items:stretch ;
+    gap: 20px;
+    grid-area: main;
+    margin-top: 20px;
+    
+}
+
+.imagem{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+    border: 1px black solid;
+    
+}
+
+
+.img-card{
+    width: 250px;
+   
+    
+}
+
+footer, h4{
+    display: grid;
+    background: rgb(207, 108, 105);
+    grid-template-columns:175px;
+    grid-template-rows: 60px;
+    align-items: center;
+    justify-items: end;
+    
+
+}
+
+div{
+    display: grid;
+    background-color: black;
+    justify-items: center;
+    
+}
+
+h3{
+    color: rgb(207, 108, 105) ;
+}
+
+.telaInicial{
+    display: grid;
+    color: black;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px;
+    justify-items: end;
+    align-items: center;
+    margin-right: 20px;
+
+}
