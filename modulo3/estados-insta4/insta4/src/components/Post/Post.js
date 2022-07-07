@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import './style.css'
 
+
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+
 
 
 
@@ -19,12 +21,13 @@ function Post(props){
 
 
   const onClickCurtida = () => {
-    let novoValor=iconeCoracaoPreto
-    setCurtido(novoValor)
-    let numCurtida = numeroCurtidas+1
-    setnumeroCurtidas(numCurtida)
-
-    console.log('Curtiu!')
+    setCurtido(!curtido)
+    console.log("Curtiu!")
+    if(!curtido){
+      setnumeroCurtidas(numeroCurtidas+1)
+    }else{
+      setnumeroCurtidas(numeroCurtidas-1)
+    }
   }
   
   const onClickComentario = () => {
@@ -63,7 +66,7 @@ function Post(props){
       componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario}/>
     }
 
-  return(
+   return(
     <div className = 'PostContainer'>
       <div className = 'PostHeader'>
         <img className = 'UserPhoto' src={props.fotoUsuario} alt={'Imagem do usuario'}/>
