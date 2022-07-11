@@ -1,5 +1,10 @@
 import React, {useState} from 'react';
-import {Main} from './components/styled'
+import logoLabenu from './img/LogoLabenu.jpg';
+import {Container} from './components/styled';
+import {Header} from './components/styled';
+import {Main} from './components/styled';
+import {Footer} from './components/styled';
+
 
 function App() {
 
@@ -26,6 +31,8 @@ function App() {
      const novaPostagem = {nome:inputNome , mensagem:inputMensagem }
      const novaMensagem = [...mensagens, novaPostagem]
     setMensagem(novaMensagem)
+    setInputNome("")
+    setInputMensagem("")
   }
 
   const listaDeMensagens = mensagens.map((postagem) =>{
@@ -38,28 +45,60 @@ function App() {
     })
 
   return (
+
+    <Container>
+
+    <Header>
+      <img src={ logoLabenu } alt={"logo Labenu"} />
+      <h1>WhatsLab</h1>
+    </Header>
+
     <Main>
-      <form>
-        <label>Nome:</label>
-        <input
-          placeholder = "Nome"
+      <section></section>
+
+      <div>
+        <form>
+          <label>Nome:</label>
+          <input
+          placeholder = "Usuário"
           onChange={handleInputNome}  
           value={inputNome}  
         />
 
-        <label>Mensagem:</label>
-        <input
-          placeholder = "Mensagem"
+          <label>Mensagem:</label>
+          <input
+          className='inputModificado'
+          placeholder = "Digite uma mensagem"
           onChange={handleInputMensagem}
           value={inputMensagem}
          />
-        <button
-        onClick={adicionarMensagem}
-        >Enviar</button>
+          <button
+           onClick={adicionarMensagem}
+          >Enviar</button>
 
-      </form>
+        </form>
+      </div>
+
+      <section></section>
       {listaDeMensagens}
     </Main>
+
+    <Footer>
+      <p>Copyright  © 2022 Labenu All rigths reserved. R. Pais leme, 215, Conjunto 820 Pinheiros. Cep 05424-150</p>
+    </Footer>
+  </Container>
+
+
+
+
+
+
+
+
+
+
+
+   
     
   );
 }
