@@ -1,17 +1,24 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const useRequestData = () => {
-    // variável de estado
-    const [requestData, setRequestData] = useState([])  
+export function useRequestData (url) {
+    const [data, setData] = useState(undefined)  // variável de estado
+
+    const [isLoading, setIsLoading] = useState (false)
+
+    const [error, setError]=useState("")
 
     useEffect(() => {
-        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips").then(response => {
-            setRequestData(response.data)
+        setIsLoading(true)
+        axios.get(url).then(response => {
+            setIsLoading(false) 
+            setData(response.data)
         }).catch(error => {
+            setIsLoading(false) 
             console.log(error)
+            setError(error) 
         })
-    }, [])
-    return requestData;
+    }, [url])
+
+    return [data, isLoading, error] ;
 }
-export default useRequestData; 

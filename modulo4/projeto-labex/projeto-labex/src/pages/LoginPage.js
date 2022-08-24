@@ -24,13 +24,13 @@ const LoginPage = () => {
                 <label htmlFor="email" >Email:</label>
 
                 <input
-                    name="email"
-                    id="email"
+                    name="email"  //colocar igual a propriedade que está no estado inicial do useForm!
+                    id="email" //colocar igual ao htmlFor do label
                     placeholder="E-mail"
                     value={form.email}
-                    onChange={onChange}
-                    type="email"
-                    required
+                    onChange={onChange} 
+                    type="email"  //faz validações de e-mail
+                    required //torna campo obrigatório
                 />
                 <label htmlFor="password" >Senha:</label>
                 <input
@@ -38,8 +38,10 @@ const LoginPage = () => {
                     id="password"                  
                     placeholder="Password"
                     value={form.password}
-                    onChange={onChange}
+                    onChange={onChange}            
                     type="password"
+                    pattern="^.{3,}$" //padrão Regex
+                    title="mínimo de 3 caracteres"
                     required
                 />
                 <button type="submit"> Fazer Login</button>

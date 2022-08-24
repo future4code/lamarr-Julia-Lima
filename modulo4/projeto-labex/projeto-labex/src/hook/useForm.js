@@ -1,6 +1,5 @@
 import {useState} from "react";
 
-
 export const useForm = (initialState) => {
     const [form, setForm] = useState(initialState)
     
@@ -8,7 +7,12 @@ export const useForm = (initialState) => {
         const {name, value} = event.target
         setForm({...form, [name]: value})
     }
-    return [form, onChange]
+    const clear = () => {
+        setForm(initialState) //limpar inputs
+    }
+    return [form, onChange, clear] 
 }
+
+export default useForm;
 
 
