@@ -1,26 +1,42 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import {goToAdminHomePage} from '../Routes/Coordinator'
 import useForm from '../hook/useForm';
 import axios from 'axios';
+import {BASE_URL} from '../constants/constants';
+import { useProtectedPage } from '../hook/useProtectPage';
 
 const LoginPage = () => {
+    useProtectedPage();
     const navigate = useNavigate()
 
-    const [form, onChange] = useForm ({email:"", password:""})
+    const [form, onChange, clear] = useForm ({email:"", password:""})
 
-    const login = (event) => {
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            navigate("/admin/trips/list");
+        };
+    }, [navigate]);
+
+    const submitLogin = (event) => {
         event.preventDefault()
-        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/julia-marques-lamarr/login",
+
+        axios.post(`${BASE_URL}/login`,
         form)
-        .then((response) => console.log(response.data))
-        .catch((error) => console.log(error.message))
+        .then(response => {
+            localStorage.setItem("token", 
+            response.data.token)
+            navigate("/admin/trips/list")
+        })
+        .catch((error) => console.log(error.message)) 
+    clear();
+        
     }
     return (
         <div>
             <p>LoginPage</p>
 
-            <form onSubmit={login}>
+            <form onSubmit={submitLogin}>
                 <label htmlFor="email" >Email:</label>
 
                 <input
