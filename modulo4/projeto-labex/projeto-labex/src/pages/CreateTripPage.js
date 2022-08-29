@@ -5,6 +5,7 @@ import axios from "axios";
 import {useRequestData} from '../hook/useRequestData';
 import {BASE_URL} from '../constants/constants';
 import { goToHomePage } from '../Routes/Coordinator';
+import {CreatBox, HeaderCreat} from './style'
 
 const CreateTripPage = () => {
     const [form, onChange, clear] = useForm ({name:"", planet:"", date:"", description:"", durationInDays:"" })
@@ -25,7 +26,7 @@ const CreateTripPage = () => {
             ...form
         }
 
-        axios.post(`${BASE_URL}trips/${inputTrip}/apply`, body)
+        axios.post(`${BASE_URL}trips/${setInputTrip}/apply`, body)
             .then((response) => {alert("Viagem enviada com sucesso")
             console.log(response.data)})
             .catch((error) => {console.log(error.message)})
@@ -41,13 +42,18 @@ const CreateTripPage = () => {
                 {item.name}
             </option>
         )
+
+    
     })
 
 
 
     return ( 
-            <div>
-
+            <CreatBox>
+                <HeaderCreat>
+                    <button onClick={pageListTrip}>Lista de Viagens</button>
+                    <button onClick={() => {goToHomePage(navigate)}}> Página Inicial</button>
+                </HeaderCreat>
                 <p>Inscreva-se para uma viagem!</p>
                 <form onSubmit={submitTrip}>
                 <label htmlFor="name">Name:</label>
@@ -116,9 +122,8 @@ const CreateTripPage = () => {
                 
                 <button type="submit">Enviar minha viagem</button>              
             </form>
-                <button onClick={pageListTrip}>Lista de Viagens</button>
-                <button onClick={() => {goToHomePage(navigate)}}> Página Inicial</button>
-        </div>   
+                
+        </CreatBox>   
     )
 }
 

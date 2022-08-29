@@ -5,6 +5,7 @@ import axios from "axios";
 import {useRequestData} from '../hook/useRequestData';
 import {BASE_URL} from '../constants/constants';
 import { goToHomePage } from '../Routes/Coordinator';
+import {ApplicationBox, HeaderApplication} from './style'
 
 const ApplicationFormPage = () => {
     const [form, onChange, clear] = useForm ({name:"", age:"", text:"", profession:"", country:"" })
@@ -47,7 +48,11 @@ const ApplicationFormPage = () => {
     })
 
     return (  
-        <div>
+        <ApplicationBox>
+            <HeaderApplication>
+            <button onClick={pageListTrip}>Lista de Viagens</button>
+                <button onClick={() => {goToHomePage(navigate)}}> Página Inicial</button>
+            </HeaderApplication>
             <p>Inscreva-se para uma viagem!</p>
 
             <form onSubmit={inscrever}>
@@ -123,9 +128,7 @@ const ApplicationFormPage = () => {
                 
                 <button type="submit">Inscrever</button>              
             </form>
-                <button onClick={pageListTrip}>Lista de Viagens</button>
-                <button onClick={() => {goToHomePage(navigate)}}> Página Inicial</button>
-        </div>   
+        </ApplicationBox>   
     )    
 }
 

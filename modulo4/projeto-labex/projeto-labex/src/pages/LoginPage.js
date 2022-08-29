@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import {goToAdminHomePage} from '../Routes/Coordinator'
+import {goToAdminHomePage, goToHomePage} from '../Routes/Coordinator'
 import useForm from '../hook/useForm';
 import axios from 'axios';
 import {BASE_URL} from '../constants/constants';
 import { useProtectedPage } from '../hook/useProtectPage';
+import {LoginBox, HeaderLogin}  from './style'
 
 const LoginPage = () => {
     useProtectedPage();
@@ -33,9 +34,11 @@ const LoginPage = () => {
         
     }
     return (
-        <div>
-            <p>LoginPage</p>
-
+        <LoginBox>
+            <HeaderLogin>
+            <button onClick={() => {goToAdminHomePage(navigate)}}>Gerenciar Minhas Viagens</button>
+            <button onClick={() => {goToHomePage(navigate)}}>Página Inicial</button>
+            </HeaderLogin>
             <form onSubmit={submitLogin}>
                 <label htmlFor="email" >Email:</label>
 
@@ -62,8 +65,8 @@ const LoginPage = () => {
                 />
                 <button type="submit"> Fazer Login</button>
             </form>
-            <button onClick={() => {goToAdminHomePage(navigate)}}>Já estou logado</button>
-        </div>
+            
+        </LoginBox>
     )   
 }
 export default LoginPage;
