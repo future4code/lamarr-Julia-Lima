@@ -1,0 +1,12 @@
+{
+  "name": "package-json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./exercicio1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
