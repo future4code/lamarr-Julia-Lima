@@ -8,8 +8,8 @@ app.use(express.json())
 app.use(cors())
 
 
-app.get("/caminho", (req:Request, res:Response) => {
-    res.send("Funcionou!")
+app.get("/test", (req:Request, res:Response) => {
+    res.send("Servidor rodando na porta 3003")
   })
 
 app.listen(3003, () => {
