@@ -7,9 +7,11 @@ export class User {
         this.id = id;
         this.email = email;
         this.password = password
-        
     }
 
+    public getId() {
+        return this.id
+    }
 
     public getEmail(): string {
         return this.email;
@@ -18,10 +20,14 @@ export class User {
         return this.password;
     }
 
+    public setId(newId: string) {
+        this.id = newId
+    }
+
     public setEmail(newEmail: string): void{
         this.email = newEmail;
     }
     public setPassword(newPassword: string): void{
         this.password = newPassword;
     }
-}
+} 

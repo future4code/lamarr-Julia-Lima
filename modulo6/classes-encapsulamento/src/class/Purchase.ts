@@ -1,38 +1,55 @@
-// type para tipar no typescript com camelCase
-
-
 export class Purchase {
-    public id: string;
-    public userId: string;
-    public productId: string;
-    public quantity: number;
-    public totalPrice: number
-
-    constructor(id: string, userId: string, productId: string, quantity: number, totalPrice: number ){
-        this.id = id;
-        this.userId= userId;
-        this.productId = productId;
-        this.quantity = quantity;
+    constructor(
+        private id: string,
+        private userId: string,
+        private productId: string,
+        private quantity: number,
+        private totalPrice: number
+    ) {
+        this.id = id
+        this.userId = userId
+        this.productId = productId
+        this.quantity = quantity,
         this.totalPrice = totalPrice
     }
 
-}
-
-// type para tipar no banco de dados com snake_case
-
-export class PurchaseDB {
-    public id: string;
-    public user_id: string;
-    public product_id: string;
-    public quantity: number;
-    public total_price: number
-
-    constructor(id: string, user_id: string, product_id: string, quantity: number, total_price: number ){
-        this.id = id;
-        this.user_id = user_id;
-        this.product_id = product_id;
-        this.quantity = quantity;
-        this.total_price = total_price
+    public getId() {
+        return this.id
     }
 
-} 
+    public getUserId() {
+        return this.userId
+    }
+
+    public getProductId() {
+        return this.productId
+    }
+
+    public getQuantity() {
+        return this.quantity
+    }
+
+    public getTotalPrice() {
+        return this.totalPrice
+    }
+
+    public setId(newId: string) {
+        this.id = newId
+    }
+
+    public setUserId(newUserId: string) {
+        this.userId = newUserId
+    }
+
+    public setProductId(newProductId: string) {
+        this.productId =  newProductId
+    }
+
+    public setQuantity(newQuantity: number) {
+        this.quantity =  newQuantity
+    }
+
+    public setTotalPrice(newTotalPrice: number) {
+        this.totalPrice =  newTotalPrice
+    }
+}

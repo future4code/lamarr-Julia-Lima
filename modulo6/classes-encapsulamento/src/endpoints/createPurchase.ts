@@ -2,6 +2,7 @@ import { Request, Response } from "express"
 import connection from "../database/connection"
 import { TABLE_PRODUCTS, TABLE_PURCHASES, TABLE_USERS } from "../database/tableNames"
 import { Product } from "../class/Product"
+import { Purchase_data } from "../models/Purchase"
 import { Purchase } from "../class/Purchase"
 
 export const createPurchase = async (req: Request, res: Response) => {
@@ -32,27 +33,41 @@ export const createPurchase = async (req: Request, res: Response) => {
             errorCode = 404
             throw new Error("Produto não encontrado.")
         }
-        
-        const product: Product = {
-            id: findProduct[0].id,
-            name: findProduct[0].name,
-            price: findProduct[0].price
-        }
 
-        const newPurchase: Purchase = {
-            id: Date.now().toString(),
+        // const product: Product = {
+        //     id: findProduct[0].id,
+        //     name: findProduct[0].name,
+        //     price: findProduct[0].price
+        // }
+
+        const product = new Product(
+            findProduct[0].id,
+            findProduct[0].name,
+            findProduct[0].price
+        )
+
+        // const newPurchase: Purchase = {
+        //     id: Date.now().toString(),
+        //     userId,
+        //     productId,
+        //     quantity,
+        //     totalPrice: product.price * quantity
+        // }
+
+        const newPurchase = new Purchase (
+            Date.now().toString(),
             userId,
             productId,
             quantity,
-            totalPrice: product.price * quantity
-        }
+            product.getPrice() * quantity
+        )
 
         await connection(TABLE_PURCHASES).insert({
-            id: newPurchase.id,
-            user_id: newPurchase.userId,
-            product_id: newPurchase.productId,
-            quantity: newPurchase.quantity,
-            total_price: newPurchase.totalPrice
+            id: newPurchase.getId(),
+            user_id: newPurchase.getUserId(),
+            product_id: newPurchase.getProductId(),
+            quantity: newPurchase.getQuantity(),
+            total_price: newPurchase.getTotalPrice()
         })
 
         res.status(201).send({ message: "Compra registrada", purchase: newPurchase })
