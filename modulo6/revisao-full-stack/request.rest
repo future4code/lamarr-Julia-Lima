@@ -1,0 +1,11 @@
+### teste
+
+GET http://localhost:3003/ping
+
+### criar um novo cliente
+POST http://localhost:3003/client
+Content-Type: application/json
+
+{
+    "name": "Julia Marques"
+}
