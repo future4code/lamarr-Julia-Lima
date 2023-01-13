@@ -2,10 +2,33 @@
 
 GET http://localhost:3003/ping
 
-### criar um novo cliente
+### create client
 POST http://localhost:3003/client
 Content-Type: application/json
 
 {
     "name": "Julia Marques"
 }
+
+### return all clients
+GET http://localhost:3003/allClients
+Content-Type: application/json
+
+### return all products
+GET http://localhost:3003/allProducts
+Content-Type: application/json
+
+### create order
+POST http://localhost:3003/order
+Content-Type: application/json
+{
+    "fk_client": 1,
+    "delivery_date": "2023-01-04",
+    "products":[
+        {
+            "id":1,
+            "qty":10
+        }
+    ]
+}
+
